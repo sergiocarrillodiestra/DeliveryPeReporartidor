@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_new_orders">
+
+    <fragment
+        android:id="@+id/navigation_new_orders"
+        android:name="com.dscorp.deliverypedrivers.presentation.TransportationOrdersFragment"
+        android:label="@string/title_new_orders"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_in_progress_orders"
+        android:name="com.dscorp.deliverypedrivers.presentation.ui.dashboard.DashboardFragment"
+        android:label="@string/title_in_progress_orders"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_orders_history"
+        android:name="com.dscorp.deliverypedrivers.presentation.ui.notifications.NotificationsFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/transportationOrdersFragment"
+        android:name="com.dscorp.deliverypedrivers.presentation.TransportationOrdersFragment"
+        android:label="transportation_orders_fragment_item_list"
+        tools:layout="@layout/transportation_orders_fragment" />
+</navigation>
