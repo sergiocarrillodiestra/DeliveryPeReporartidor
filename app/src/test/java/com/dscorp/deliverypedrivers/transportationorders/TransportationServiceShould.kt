@@ -19,7 +19,6 @@ class TransportationServiceShould : BaseUnitTest() {
 
     private val exception = RuntimeException("network error")
     private val transportationOrders: List<TransportationOrder> = mock()
-    private val driverId: String = "computer"
     private lateinit var service: TransportationOrdersService
     private val api: TransportationOrderAPI = mock()
 
@@ -31,26 +30,26 @@ class TransportationServiceShould : BaseUnitTest() {
 
     @Test
     fun `get new transportation order from api`() = runBlockingTest {
-        service.getNewTransportationOrders(driverId).first()
-        verify(api, times(1)).getNewTransportationOrders(driverId)
+        service.getNewTransportationOrders().first()
+        verify(api, times(1)).getNewTransportationOrders()
     }
 
     @Test
     fun `convert values to flow result and emits them`() = runBlockingTest {
-        whenever(api.getNewTransportationOrders(driverId)).thenReturn(transportationOrders)
+        whenever(api.getNewTransportationOrders()).thenReturn(transportationOrders)
         assertEquals(
             Result.success(transportationOrders),
-            service.getNewTransportationOrders(driverId).first()
+            service.getNewTransportationOrders().first()
         )
 
     }
 
     @Test
     fun `emit error when network fails`() = runBlockingTest {
-        whenever(api.getNewTransportationOrders(driverId)).thenThrow(exception)
+        whenever(api.getNewTransportationOrders()).thenThrow(exception)
         assertEquals(
             exception,
-            service.getNewTransportationOrders(driverId).first().exceptionOrNull()
+            service.getNewTransportationOrders().first().exceptionOrNull()
         )
     }
 

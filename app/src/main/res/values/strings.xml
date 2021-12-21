@@ -2,11 +2,12 @@
     <string name="app_name">DeliveryPE Drivers</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_new_orders">Nuevos</string>
-    <string name="title_in_progress_orders">En Progreso</string>
+    <string name="taken_transportation_orders">En Progreso</string>
     <string name="title_history">Historial</string>
     <string name="customer_name_label_new_transp">Cliente:</string>
     <string name="establishment_name_label_new_transp">Establecimiento:</string>
     <string name="delivery_site_label_new_transp">Dirección:</string>
     <string name="customer_phones_label_new_transp">Teléfonos:</string>
     <string name="total_price_label_new_transp">Total:</string>
+    <string name="history_transportation_orders">Historial</string>
 </resources>

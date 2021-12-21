@@ -20,7 +20,6 @@ class TransportationOrdersRepositoryShould : BaseUnitTest() {
 
     private val newTransportationsOrders = mock<List<TransportationOrder>>()
     private val expected = Result.success(newTransportationsOrders)
-    private val driverId = "computer"
     private val service: TransportationOrdersService = mock()
     private lateinit var repository: TransportationOrdersRepository
     private val exception = RuntimeException("something went wrong")
@@ -32,35 +31,36 @@ class TransportationOrdersRepositoryShould : BaseUnitTest() {
 
     @Test
     fun `get new transportation orders from service`() {
-        repository.getNewTransportationOrders(driverId)
-        verify(service, times(1)).getNewTransportationOrders(driverId)
+        repository.getNewTransportationOrders()
+        verify(service, times(1)).getNewTransportationOrders()
     }
 
     @Test
-    fun `emit transportation orders from service`() = runBlockingTest {
-        whenever(service.getNewTransportationOrders(driverId)).thenReturn(
+    fun `emit new transportation orders from service`() = runBlockingTest {
+        whenever(service.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(expected)
             }
         )
-        repository.getNewTransportationOrders(driverId)
+        repository.getNewTransportationOrders()
         assertEquals(
             newTransportationsOrders,
-            repository.getNewTransportationOrders(driverId).first().getOrNull()
+            repository.getNewTransportationOrders().first().getOrNull()
         )
-
-
     }
+
+
+
 
     @Test
     fun `propagate errors`() = runBlockingTest {
-        whenever(service.getNewTransportationOrders(driverId)).thenReturn(
+        whenever(service.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(Result.failure(exception))
             }
         )
-        service.getNewTransportationOrders(driverId)
-        assertEquals(exception, repository.getNewTransportationOrders(driverId).first().exceptionOrNull())
+        service.getNewTransportationOrders()
+        assertEquals(exception, repository.getNewTransportationOrders().first().exceptionOrNull())
     }
 
 

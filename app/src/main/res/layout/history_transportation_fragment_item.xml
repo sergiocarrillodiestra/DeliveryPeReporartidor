@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/transportation_order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="#00548"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
+    <TextView
+        android:id="@+id/customer_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/regular_margin"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:text="@string/customer_name_label_new_transp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transportation_order_id" />
+
+    <TextView
+        android:id="@+id/customer_name_history_transportation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/regular_margin"
+        android:layout_marginEnd="@dimen/regular_margin"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="@+id/customer_name_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/customer_name_label"
+        app:layout_constraintTop_toTopOf="@+id/customer_name_label" />
+
+
+    <TextView
+        android:id="@+id/establishment_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/establishment_name_label_new_transp"
+        app:layout_constraintStart_toStartOf="@+id/customer_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/customer_name_label" />
+
+    <TextView
+        android:id="@+id/establishment_name_site_history_transportation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/regular_margin"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="@+id/establishment_name_label"
+        app:layout_constraintEnd_toEndOf="@+id/customer_name_history_transportation"
+        app:layout_constraintStart_toEndOf="@+id/establishment_name_label"
+        app:layout_constraintTop_toTopOf="@+id/establishment_name_label" />
+
+    <TextView
+        android:id="@+id/delivery_site_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:text="@string/delivery_site_label_new_transp"
+        app:layout_constraintStart_toStartOf="@id/establishment_name_label"
+        app:layout_constraintTop_toBottomOf="@id/establishment_name_label" />
+
+
+    <TextView
+        android:id="@+id/customer_delivery_site_history_transportation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/regular_margin"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="@+id/delivery_site_label"
+        app:layout_constraintEnd_toEndOf="@+id/establishment_name_site_history_transportation"
+
+        app:layout_constraintStart_toEndOf="@id/delivery_site_label"
+        app:layout_constraintTop_toTopOf="@id/delivery_site_label" />
+
+    <TextView
+        android:id="@+id/customer_phones_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:text="@string/customer_phones_label_new_transp"
+        app:layout_constraintStart_toStartOf="@+id/delivery_site_label"
+        app:layout_constraintTop_toBottomOf="@+id/delivery_site_label" />
+
+    <TextView
+        android:id="@+id/customer_phones_site_history_transportation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/regular_margin"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="@+id/customer_phones_label"
+        app:layout_constraintEnd_toEndOf="@+id/customer_delivery_site_history_transportation"
+        app:layout_constraintStart_toEndOf="@+id/customer_phones_label"
+        app:layout_constraintTop_toTopOf="@+id/customer_phones_label" />
+
+
+    <TextView
+        android:id="@+id/order_total_price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:text="@string/total_price_label_new_transp"
+        app:layout_constraintStart_toStartOf="@+id/customer_phones_label"
+        app:layout_constraintTop_toBottomOf="@+id/customer_phones_label" />
+
+
+    <TextView
+        android:id="@+id/order_total_price_history_transportation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/regular_margin"
+
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="@+id/order_total_price_label"
+        app:layout_constraintEnd_toEndOf="@+id/customer_phones_site_history_transportation"
+        app:layout_constraintStart_toEndOf="@+id/order_total_price_label"
+        app:layout_constraintTop_toTopOf="@+id/order_total_price_label" />
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/order_total_price_history_transportation" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

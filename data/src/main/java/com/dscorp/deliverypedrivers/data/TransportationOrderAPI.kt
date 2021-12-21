@@ -6,6 +6,12 @@ import retrofit2.http.Path
 
 interface TransportationOrderAPI {
 
-    @GET("getTransportationOrdersByDriver/{id}")
-    suspend fun getNewTransportationOrders(@Path("id") driverId: String): List<TransportationOrder>
+    @GET("getNewTransportationOrders")
+    suspend fun getNewTransportationOrders(): List<TransportationOrder>
+
+    @GET("getTakenTransportationOrdersByDriver/{id}")
+    suspend fun getTakenTransportationOrders(@Path("id") driverId: String): List<TransportationOrder>
+
+    @GET("getHistoryTransportationOrdersByDriver/{id}")
+    suspend fun getHistoryOfTransportationOrders(@Path("id") driverId: String): List<TransportationOrder>
 }

@@ -3,15 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_item.xml" value="0.2671875" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_item_list.xml" value="0.22" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_new_transportation_orders.xml" value="0.1962962962962963" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_notifications.xml" value="0.2671875" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_taked_transportation_orders.xml" value="0.1962962962962963" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/fragment_taken_transportation_orders.xml" value="0.33" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/history_transportation_fragment_item.xml" value="0.28055555555555556" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/history_transportation_fragment_tem_list.xml" value="0.28055555555555556" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/new_transportation_fragment_orders_list.xml" value="0.28055555555555556" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/new_transportation_orders_fragment_item.xml" value="0.1962962962962963" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/taken_transportation_fragment_orders_list.xml" value="0.28055555555555556" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/taken_transportation_orders_fragment_item.xml" value="0.1962962962962963" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/transportation_orders_fragment.xml" value="0.1" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/transportation_orders_fragment_item.xml" value="0.1" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/transportation_orders_fragment_item_list.xml" value="0.2671875" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/transportation_orders_fragment_taked_item.xml" value="0.3625" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/transportation_orders_taked_fragment.xml" value="0.33" />
+        <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/layout/transportation_orders_taken_list.xml" value="0.1962962962962963" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/menu/bottom_nav_menu.xml" value="0.13697916666666668" />
         <entry key="..\:/ingenieria de software/Proyectos android/DeliveryPEDrivers/app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>

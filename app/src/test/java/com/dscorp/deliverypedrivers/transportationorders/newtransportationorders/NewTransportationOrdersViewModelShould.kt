@@ -1,10 +1,9 @@
-package com.dscorp.deliverypedrivers.transportationorders
+package com.dscorp.deliverypedrivers.transportationorders.newtransportationorders
 
-import com.dscorp.deliverypedrivers.Constants
 import com.dscorp.deliverypedrivers.data.TransportationOrdersRepository
 import com.dscorp.deliverypedrivers.data.TransportationOrdersService
 import com.dscorp.deliverypedrivers.domain.TransportationOrder
-import com.dscorp.deliverypedrivers.presentation.transportationOrders.TransportationOrdersViewModel
+import com.dscorp.deliverypedrivers.presentation.bottomnav.neworders.NewTransportationOrdersViewModel
 import com.dscorp.deliverypedrivers.utils.BaseUnitTest
 import com.dscorp.deliverypedrivers.utils.captureValues
 import com.dscorp.deliverypedrivers.utils.getValueForTest
@@ -18,100 +17,99 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 
-class TransportationOrdersViewModelShould : BaseUnitTest() {
+class NewTransportationOrdersViewModelShould : BaseUnitTest() {
 
-    lateinit var viewModel: TransportationOrdersViewModel
+    lateinit var viewModelNew: NewTransportationOrdersViewModel
     private val newTransportationsOrders = mock<List<TransportationOrder>>()
     private val expected = Result.success(newTransportationsOrders)
-    private val driverId: String = "computer"
     private val service: TransportationOrdersService = mock()
     private val repository: TransportationOrdersRepository = mock()
     private val exception = Exception("something went wrong")
 
     @Before
     fun setup() {
-        viewModel = TransportationOrdersViewModel(repository)
+        viewModelNew = NewTransportationOrdersViewModel(repository)
     }
 
 
     @Test
     fun `get new transportation orders from repository`() = runBlockingTest {
-        viewModel.getNewTransportationOrders(driverId)
-        verify(repository, times(1)).getNewTransportationOrders(driverId)
+        viewModelNew.getNewTransportationOrders()
+        verify(repository, times(1)).getNewTransportationOrders()
     }
 
     @Test
     fun `get new transportation orders from service`() {
         val myrepo = TransportationOrdersRepository(service)
-        TransportationOrdersViewModel(myrepo).getNewTransportationOrders(driverId)
-        verify(service, times(1)).getNewTransportationOrders(driverId)
+        NewTransportationOrdersViewModel(myrepo).getNewTransportationOrders()
+        verify(service, times(1)).getNewTransportationOrders()
     }
 
     @Test
     fun `emits new tansportation orders from repository`() {
-        whenever(repository.getNewTransportationOrders(driverId))
+        whenever(repository.getNewTransportationOrders())
             .thenReturn(
                 flow {
                     emit(expected)
                 }
             )
 
-        viewModel.getNewTransportationOrders(driverId)
-        assertEquals(expected, viewModel.newTransportationOrders.getValueForTest())
+        viewModelNew.getNewTransportationOrders()
+        assertEquals(expected, viewModelNew.newTransportationOrders.getValueForTest())
     }
 
 
-    @Test
-    fun `throw error when driverid is empty`() = runBlockingTest {
-        viewModel.getNewTransportationOrders("")
-        assertEquals(
-            Constants.EMPTY_STRING_ERROR,
-            viewModel.newTransportationOrders.getValueForTest()!!.exceptionOrNull()!!.message
-        )
-    }
+//    @Test
+//    fun `throw error when  is empty`() = runBlockingTest {
+//        viewModel.getNewTransportationOrders()
+//        assertEquals(
+//            Constants.EMPTY_STRING_ERROR,
+//            viewModel.newTransportationOrders.getValueForTest()!!.exceptionOrNull()!!.message
+//        )
+//    }
 
 
     @Test
     fun emitErrorWhenReceiveError() {
-        whenever(repository.getNewTransportationOrders(driverId)).thenReturn(
+        whenever(repository.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(Result.failure(exception))
             }
         )
-        viewModel.getNewTransportationOrders(driverId)
+        viewModelNew.getNewTransportationOrders()
         assertEquals(
             exception,
-            viewModel.newTransportationOrders.getValueForTest()?.exceptionOrNull()
+            viewModelNew.newTransportationOrders.getValueForTest()?.exceptionOrNull()
         )
 
     }
 
     @Test
     fun `show loader while loading`() = runBlockingTest {
-        whenever(repository.getNewTransportationOrders(driverId)).thenReturn(
+        whenever(repository.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(expected)
             }
         )
 
-        viewModel.loader.captureValues {
-            viewModel.getNewTransportationOrders(driverId)
-            viewModel.newTransportationOrders.getValueForTest()
+        viewModelNew.loader.captureValues {
+            viewModelNew.getNewTransportationOrders()
+            viewModelNew.newTransportationOrders.getValueForTest()
             assertEquals(true, values.first())
         }
     }
 
     @Test
     fun `close Loader After Playlist Load`() = runBlockingTest {
-        whenever(repository.getNewTransportationOrders(driverId)).thenReturn(
+        whenever(repository.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(expected)
             }
         )
-        viewModel.loader.captureValues {
+        viewModelNew.loader.captureValues {
 
-            viewModel.getNewTransportationOrders(driverId)
-            viewModel.newTransportationOrders.getValueForTest()
+            viewModelNew.getNewTransportationOrders()
+            viewModelNew.newTransportationOrders.getValueForTest()
             assertEquals(false, values.last())
         }
     }

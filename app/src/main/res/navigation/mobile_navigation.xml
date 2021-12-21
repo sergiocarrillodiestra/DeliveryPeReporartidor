@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_new_orders">
+    app:startDestination="@+id/newTransportationOrdersFragment">
 
     <fragment
-        android:id="@+id/navigation_new_orders"
-        android:name="com.dscorp.deliverypedrivers.presentation.TransportationOrdersFragment"
+        android:id="@+id/newTransportationOrdersFragment"
+        android:name="com.dscorp.deliverypedrivers.presentation.bottomnav.neworders.NewTransportationOrdersFragment"
         android:label="@string/title_new_orders"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/new_transportation_fragment_orders_list" >
+        <action android:id="@+id/action_transportation_orders_taken_Fragment"
+            app:destination="@+id/transportationOrderTakenFragment"/>
+
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_in_progress_orders"
-        android:name="com.dscorp.deliverypedrivers.presentation.ui.dashboard.DashboardFragment"
-        android:label="@string/title_in_progress_orders"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/transportationOrderTakenFragment"
+        android:name="com.dscorp.deliverypedrivers.presentation.bottomnav.takenorders.TransportationOrderTakenFragment"
+        android:label="@string/taken_transportation_orders"
+        tools:layout="@layout/taken_transportation_fragment_orders_list" />
 
     <fragment
-        android:id="@+id/navigation_orders_history"
-        android:name="com.dscorp.deliverypedrivers.presentation.ui.notifications.NotificationsFragment"
-        android:label="@string/title_history"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/transportationOrdersFragment"
-        android:name="com.dscorp.deliverypedrivers.presentation.TransportationOrdersFragment"
-        android:label="transportation_orders_fragment_item_list"
-        tools:layout="@layout/transportation_orders_fragment" />
+        android:id="@+id/historytransportationFragment"
+        android:name="com.dscorp.deliverypedrivers.presentation.bottomnav.history.HistoryTransportationFragment"
+        android:label="@string/history_transportation_orders"
+        tools:layout="@layout/history_transportation_fragment_tem_list" />
+
 </navigation>

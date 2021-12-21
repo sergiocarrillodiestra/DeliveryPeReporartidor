@@ -13,14 +13,15 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class MainScreenFeature : BaseUiTest() {
+class NewTransportationOrdersFeature : BaseUiTest() {
 
 
     @Test
-    fun totalCostMustBeTheSumOfSubtotalPlusDeliveryCost() {
+    fun showTransportationdataUI() {
         assertDisplayed(R.id.customer_name)
         assertDisplayed(R.id.delivery_site)
         assertDisplayed(R.id.customer_phones)
+        assertDisplayed(R.id.establishment_name)
     }
 
     @Test
@@ -114,10 +115,5 @@ class MainScreenFeature : BaseUiTest() {
         assertNotDisplayed(R.id.loader)
     }
 
-//    @Test
-//    fun useAppContext() {
-//        // Context of the app under test.
-//        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-//        assertEquals("com.dscorp.deliverypedrivers", appContext.packageName)
-//    }
+
 }
