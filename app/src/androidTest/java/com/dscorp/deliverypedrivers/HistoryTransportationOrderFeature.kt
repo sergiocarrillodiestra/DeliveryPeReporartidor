@@ -16,11 +16,10 @@ import org.junit.runner.RunWith
 
 
 @RunWith(AndroidJUnit4::class)
-class HistoryTransportationOrderFeature:BaseUiTest() {
+class HistoryTransportationOrderFeature : BaseUiTest() {
 
     @Test
-    fun showTransportationDataUi()
-    {
+    fun showTransportationDataUi() {
         navigateToHistoryTransportOrders()
         BaristaVisibilityAssertions.assertDisplayed(R.id.customer_name_history_transportation)
         BaristaVisibilityAssertions.assertDisplayed(R.id.customer_phones_site_history_transportation)
@@ -29,40 +28,53 @@ class HistoryTransportationOrderFeature:BaseUiTest() {
     }
 
     @Test
-    fun displayListOfHistoryTransportationOrders()
-    {
+    fun displayListOfHistoryTransportationOrders() {
         navigateToHistoryTransportOrders()
         Espresso.onView(
             CoreMatchers.allOf(
                 ViewMatchers.withId(R.id.customer_name_history_transportation),
-                ViewMatchers.isDescendantOfA(nthChildOf(ViewMatchers.withId(R.id.orders_list_history),0))
+                ViewMatchers.isDescendantOfA(
+                    nthChildOf(
+                        ViewMatchers.withId(R.id.orders_list_history),
+                        0
+                    )
+                )
             )
         ).check(matches(ViewMatchers.withText("yordi sta anita")))
             .check(matches(ViewMatchers.isDisplayed()))
 
 
-        Espresso.onView(CoreMatchers.allOf(
-            ViewMatchers.withId(R.id.customer_phones_site_history_transportation), ViewMatchers.isDescendantOfA(
-                nthChildOf(ViewMatchers.withId(R.id.orders_list_history),0)
+        Espresso.onView(
+            CoreMatchers.allOf(
+                ViewMatchers.withId(R.id.customer_phones_site_history_transportation),
+                ViewMatchers.isDescendantOfA(
+                    nthChildOf(ViewMatchers.withId(R.id.orders_list_history), 0)
+                )
             )
-        ))
+        )
             .check(matches(ViewMatchers.withText("+51973168291")))
             .check(matches(ViewMatchers.isDisplayed()))
 
 
-        Espresso.onView(CoreMatchers.allOf(
-            ViewMatchers.withId(R.id.establishment_name_site_history_transportation), ViewMatchers.isDescendantOfA(
-                nthChildOf(ViewMatchers.withId(R.id.orders_list_history),0)
+        Espresso.onView(
+            CoreMatchers.allOf(
+                ViewMatchers.withId(R.id.establishment_name_site_history_transportation),
+                ViewMatchers.isDescendantOfA(
+                    nthChildOf(ViewMatchers.withId(R.id.orders_list_history), 0)
+                )
             )
-        ))
+        )
             .check(matches(ViewMatchers.withText("d'nelly's")))
             .check(matches(ViewMatchers.isDisplayed()))
 
-        Espresso.onView(CoreMatchers.allOf(
-            ViewMatchers.withId(R.id.order_total_price_history_transportation), ViewMatchers.isDescendantOfA(
-                nthChildOf(ViewMatchers.withId(R.id.orders_list_history),0)
+        Espresso.onView(
+            CoreMatchers.allOf(
+                ViewMatchers.withId(R.id.order_total_price_history_transportation),
+                ViewMatchers.isDescendantOfA(
+                    nthChildOf(ViewMatchers.withId(R.id.orders_list_history), 0)
+                )
             )
-        ))
+        )
             .check(matches(ViewMatchers.withText("22.50")))
             .check(matches(ViewMatchers.isDisplayed()))
 
@@ -83,7 +95,7 @@ class HistoryTransportationOrderFeature:BaseUiTest() {
     @Test
     fun displayLoaderWhileFetchingTransportationOrders() {
         IdlingRegistry.getInstance().unregister(idlingResource)
-        Thread.sleep(1000)
+        Thread.sleep(2000)
         navigateToHistoryTransportOrders()
         BaristaVisibilityAssertions.assertDisplayed(R.id.loader_history)
     }
