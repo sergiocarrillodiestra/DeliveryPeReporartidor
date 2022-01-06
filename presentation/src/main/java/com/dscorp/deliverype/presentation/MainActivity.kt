@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.historytransportationFragment
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }

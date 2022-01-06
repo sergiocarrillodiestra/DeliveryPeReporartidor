@@ -1,6 +1,6 @@
 package com.dscorp.deliverype.transportationorders
 
-import com.dscorp.deliverype.data.TransportationOrderAPI
+import com.dscorp.deliverype.data.network.enpoints.TransportationOrderService
 import com.dscorp.deliverype.data.TransportationOrdersService
 import com.dscorp.deliverype.domain.TransportationOrder
 import com.dscorp.deliverype.utils.BaseUnitTest
@@ -8,7 +8,6 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -20,7 +19,7 @@ class TransportationServiceShould : BaseUnitTest() {
     private val exception = RuntimeException("network error")
     private val transportationOrders: List<TransportationOrder> = mock()
     private lateinit var service: TransportationOrdersService
-    private val api: TransportationOrderAPI = mock()
+    private val api: TransportationOrderService = mock()
 
     @Before
     fun setup() {

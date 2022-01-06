@@ -127,15 +127,4 @@
         app:layout_constraintTop_toTopOf="@+id/order_total_price_label" />
 
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/regular_margin"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_total_price" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@ package com.dscorp.deliverype.transportationorders.newtransportationorders
 import com.dscorp.deliverype.data.TransportationOrdersRepository
 import com.dscorp.deliverype.data.TransportationOrdersService
 import com.dscorp.deliverype.domain.TransportationOrder
-import com.dscorp.deliverype.presentation.bottomnav.neworders.NewTransportationOrdersViewModel
+import com.dscorp.deliverype.presentation.bottomnav.neworders.viewmodel.NewTransportationOrdersViewModel
 import com.dscorp.deliverype.utils.BaseUnitTest
 import com.dscorp.deliverype.utils.captureValues
 import com.dscorp.deliverype.utils.getValueForTest
