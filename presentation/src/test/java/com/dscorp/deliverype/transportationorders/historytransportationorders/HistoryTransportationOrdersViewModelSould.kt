@@ -1,8 +1,8 @@
 package com.dscorp.deliverype.transportationorders.historytransportationorders
 
-import com.dscorp.deliverype.data.TransportationOrdersRepository
-import com.dscorp.deliverype.domain.TransportationOrder
-import com.dscorp.deliverype.presentation.bottomnav.history.HistoryTransportationViewModel
+import com.dscorp.deliverype.data.repository.TransportationOrdersRepositoryImpl
+import com.dscorp.deliverype.domain.entity.TransportationOrder
+import com.dscorp.deliverype.presentation.features.bottomnav.history.HistoryTransportationViewModel
 import com.dscorp.deliverype.utils.BaseUnitTest
 import com.dscorp.deliverype.utils.captureValues
 import com.dscorp.deliverype.utils.getValueForTest
@@ -22,24 +22,24 @@ class HistoryTransportationOrdersViewModelSould : BaseUnitTest() {
     private val transportatOrdersHistory = mock<List<TransportationOrder>>()
     private val expected = Result.success(transportatOrdersHistory)
     private val driverId = "computer"
-    private val repository: TransportationOrdersRepository = mock()
+    private val repositoryImpl: TransportationOrdersRepositoryImpl = mock()
     private lateinit var viewModel: HistoryTransportationViewModel
 
     @Before
     fun setup() {
-        viewModel = HistoryTransportationViewModel(repository)
+        viewModel = HistoryTransportationViewModel(repositoryImpl)
     }
 
 
     @Test
     fun `get history of transportation orders from repository`() = runBlockingTest {
         viewModel.getHistoryOfTransportationOrders(driverId)
-        verify(repository, times(1)).getHistoryOfTransportationOrders(driverId)
+        verify(repositoryImpl, times(1)).getHistoryOfTransportationOrders(driverId)
     }
 
     @Test
     fun `emit history transportation orders from repository`() = runBlockingTest {
-        whenever(repository.getHistoryOfTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getHistoryOfTransportationOrders(driverId)).thenReturn(
             flow {
                 emit(expected)
             }
@@ -50,7 +50,7 @@ class HistoryTransportationOrdersViewModelSould : BaseUnitTest() {
 
     @Test
     fun `emit error when receive error`() = runBlockingTest {
-        whenever((repository.getHistoryOfTransportationOrders(driverId))).thenReturn(
+        whenever((repositoryImpl.getHistoryOfTransportationOrders(driverId))).thenReturn(
             flow {
                 emit(Result.failure(exception))
             }
@@ -65,7 +65,7 @@ class HistoryTransportationOrdersViewModelSould : BaseUnitTest() {
 
     @Test
     fun `show loader when fetching history transpor orders`() = runBlockingTest {
-        whenever(repository.getHistoryOfTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getHistoryOfTransportationOrders(driverId)).thenReturn(
             flow { emit(expected) }
         )
         viewModel.loader.captureValues {
@@ -77,7 +77,7 @@ class HistoryTransportationOrdersViewModelSould : BaseUnitTest() {
 
     @Test
     fun `hide loader after history transpotation orders loaded`() = runBlockingTest {
-        whenever(repository.getHistoryOfTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getHistoryOfTransportationOrders(driverId)).thenReturn(
             flow { emit(expected) }
         )
 

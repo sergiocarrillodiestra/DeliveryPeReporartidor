@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.bottomnav.history.HistoryTransportationFragment">
+    tools:context=".presentation.features.bottomnav.history.HistoryTransportationFragment">
 
     <ProgressBar
         android:id="@+id/loader_taked_transportations"

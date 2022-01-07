@@ -1,8 +1,8 @@
 package com.dscorp.deliverype.transportationorders.takentransportationorders
 
-import com.dscorp.deliverype.data.TransportationOrdersRepository
-import com.dscorp.deliverype.domain.TransportationOrder
-import com.dscorp.deliverype.presentation.bottomnav.takenorders.TakenTransportationViewModel
+import com.dscorp.deliverype.data.repository.TransportationOrdersRepositoryImpl
+import com.dscorp.deliverype.domain.entity.TransportationOrder
+import com.dscorp.deliverype.presentation.features.bottomnav.takenorders.TakenTransportationViewModel
 import com.dscorp.deliverype.utils.BaseUnitTest
 import com.dscorp.deliverype.utils.captureValues
 import com.dscorp.deliverype.utils.getValueForTest
@@ -23,25 +23,25 @@ class TakenTransportationOrdersViewModelShould : BaseUnitTest() {
     private val expected = Result.success(takenTransportationOrders)
     private val driverId = "computer"
     private lateinit var viewModel: TakenTransportationViewModel
-    private val repository: TransportationOrdersRepository = mock()
+    private val repositoryImpl: TransportationOrdersRepositoryImpl = mock()
     private val exception = Exception("something went wrong")
 
     @Before
     fun setup() {
-        viewModel = TakenTransportationViewModel(repository)
+        viewModel = TakenTransportationViewModel(repositoryImpl)
     }
 
 
     @Test
     fun `get taken transportation orders`() = runBlockingTest {
         viewModel.getTakenTransportationOrders(driverId)
-        verify(repository, times(1)).getTakenTransportationOrders(driverId)
+        verify(repositoryImpl, times(1)).getTakenTransportationOrders(driverId)
     }
 
 
     @Test
     fun `emits taken transportation orders from repository`() = runBlockingTest {
-        whenever(repository.getTakenTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getTakenTransportationOrders(driverId)).thenReturn(
             flow {
                 emit(expected)
             }
@@ -54,7 +54,7 @@ class TakenTransportationOrdersViewModelShould : BaseUnitTest() {
 
     @Test
     fun `emit when error received`() {
-        whenever(repository.getTakenTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getTakenTransportationOrders(driverId)).thenReturn(
             flow {
                 emit(Result.failure(exception))
             }
@@ -70,7 +70,7 @@ class TakenTransportationOrdersViewModelShould : BaseUnitTest() {
 
     @Test
     fun `show loader while fetching the taken transportation orders`() {
-        whenever(repository.getTakenTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getTakenTransportationOrders(driverId)).thenReturn(
             flow { emit(expected) }
         )
         viewModel.loader.captureValues {
@@ -83,7 +83,7 @@ class TakenTransportationOrdersViewModelShould : BaseUnitTest() {
 
     @Test
     fun `hide loader after the taken transport orders were loaded`() {
-        whenever(repository.getTakenTransportationOrders(driverId)).thenReturn(
+        whenever(repositoryImpl.getTakenTransportationOrders(driverId)).thenReturn(
             flow {
                 emit(expected)
             }

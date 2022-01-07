@@ -1,11 +1,18 @@
 package com.dscorp.deliverype.framework.hilt.modules
 
+import android.content.Context
 import com.dscorp.deliverype.Constants
+import com.dscorp.deliverype.data.mappers.ResponseMapper
+import com.dscorp.deliverype.data.mappers.ResponseMapperImpl
+import com.dscorp.deliverype.data.network.utils.ConnectionUtils
+import com.dscorp.deliverype.data.network.utils.ConnectionUtilsImpl
+import com.dscorp.deliverype.data.network.utils.NetworkUtils
 import com.google.gson.GsonBuilder
 import com.jakewharton.espresso.OkHttp3IdlingResource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,5 +48,22 @@ class ApplicationModule {
 //            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
+
+
+    @Singleton
+    @Provides
+    fun providesConnectionUtils(@ApplicationContext appContext: Context): ConnectionUtils =
+        ConnectionUtilsImpl(appContext)
+
+    @Singleton
+    @Provides
+    fun providesNetworkUtils(connectionUtils: ConnectionUtils): NetworkUtils =
+        NetworkUtils(connectionUtils)
+
+    @Singleton
+    @Provides
+    fun providesResponseMapper(): ResponseMapper =
+        ResponseMapperImpl()
+
 
 }

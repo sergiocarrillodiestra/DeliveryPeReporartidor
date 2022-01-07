@@ -1,9 +1,9 @@
 package com.dscorp.deliverype.transportationorders.newtransportationorders
 
-import com.dscorp.deliverype.data.TransportationOrdersRepository
+import com.dscorp.deliverype.data.repository.TransportationOrdersRepositoryImpl
 import com.dscorp.deliverype.data.TransportationOrdersService
-import com.dscorp.deliverype.domain.TransportationOrder
-import com.dscorp.deliverype.presentation.bottomnav.neworders.viewmodel.NewTransportationOrdersViewModel
+import com.dscorp.deliverype.domain.entity.TransportationOrder
+import com.dscorp.deliverype.presentation.features.bottomnav.neworders.viewmodel.NewTransportationOrdersViewModel
 import com.dscorp.deliverype.utils.BaseUnitTest
 import com.dscorp.deliverype.utils.captureValues
 import com.dscorp.deliverype.utils.getValueForTest
@@ -23,31 +23,31 @@ class NewTransportationOrdersViewModelShould : BaseUnitTest() {
     private val newTransportationsOrders = mock<List<TransportationOrder>>()
     private val expected = Result.success(newTransportationsOrders)
     private val service: TransportationOrdersService = mock()
-    private val repository: TransportationOrdersRepository = mock()
+    private val repositoryImpl: TransportationOrdersRepositoryImpl = mock()
     private val exception = Exception("something went wrong")
 
     @Before
     fun setup() {
-        viewModelNew = NewTransportationOrdersViewModel(repository)
+        viewModelNew = NewTransportationOrdersViewModel(repositoryImpl)
     }
 
 
     @Test
     fun `get new transportation orders from repository`() = runBlockingTest {
         viewModelNew.getNewTransportationOrders()
-        verify(repository, times(1)).getNewTransportationOrders()
+        verify(repositoryImpl, times(1)).getNewTransportationOrders()
     }
 
     @Test
     fun `get new transportation orders from service`() {
-        val myrepo = TransportationOrdersRepository(service)
+        val myrepo = TransportationOrdersRepositoryImpl(service)
         NewTransportationOrdersViewModel(myrepo).getNewTransportationOrders()
         verify(service, times(1)).getNewTransportationOrders()
     }
 
     @Test
     fun `emits new tansportation orders from repository`() {
-        whenever(repository.getNewTransportationOrders())
+        whenever(repositoryImpl.getNewTransportationOrders())
             .thenReturn(
                 flow {
                     emit(expected)
@@ -71,7 +71,7 @@ class NewTransportationOrdersViewModelShould : BaseUnitTest() {
 
     @Test
     fun emitErrorWhenReceiveError() {
-        whenever(repository.getNewTransportationOrders()).thenReturn(
+        whenever(repositoryImpl.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(Result.failure(exception))
             }
@@ -86,7 +86,7 @@ class NewTransportationOrdersViewModelShould : BaseUnitTest() {
 
     @Test
     fun `show loader while loading`() = runBlockingTest {
-        whenever(repository.getNewTransportationOrders()).thenReturn(
+        whenever(repositoryImpl.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(expected)
             }
@@ -101,7 +101,7 @@ class NewTransportationOrdersViewModelShould : BaseUnitTest() {
 
     @Test
     fun `close Loader After Playlist Load`() = runBlockingTest {
-        whenever(repository.getNewTransportationOrders()).thenReturn(
+        whenever(repositoryImpl.getNewTransportationOrders()).thenReturn(
             flow {
                 emit(expected)
             }

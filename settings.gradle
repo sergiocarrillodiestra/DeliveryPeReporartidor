@@ -8,6 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DeliveryPE"
 include ':presentation'
-include ':data'
 include ':domain'
-include ':usecases'
+include ':data'

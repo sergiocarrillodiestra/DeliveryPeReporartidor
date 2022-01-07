@@ -78,6 +78,7 @@ android {
             dimension "version"
             applicationId "com.dscorp.deliverype.driver"
             manifestPlaceholders variant: 'Driver'
+
         }
         vendor {
             dimension "version"
@@ -95,7 +96,6 @@ dependencies {
 
     implementation project(':domain')
     implementation project(':data')
-    implementation project(':usecases')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'

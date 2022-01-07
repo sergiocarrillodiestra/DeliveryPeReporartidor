@@ -1,4 +1,4 @@
-package com.papps.data.network.utils
+package com.dscorp.deliverype.data.network.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -7,13 +7,6 @@ import android.os.Build
 import android.util.Log
 import java.lang.Exception
 
-/**
- * Created by Christopher Elias on 17/02/2020.
- * celias@peruapps.com.pe
- *
- * Peru Apps
- * Lima, Peru.
- **/
 class ConnectionUtilsImpl(private val applicationContext: Context) :
     ConnectionUtils {
     override fun isNetworkAvailable(): Boolean {

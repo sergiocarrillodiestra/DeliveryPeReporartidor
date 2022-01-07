@@ -1,8 +1,8 @@
 package com.dscorp.deliverype.transportationorders
 
-import com.dscorp.deliverype.data.network.enpoints.TransportationOrderService
+import com.dscorp.deliverype.data.network.enpoints.RemoteAPI
 import com.dscorp.deliverype.data.TransportationOrdersService
-import com.dscorp.deliverype.domain.TransportationOrder
+import com.dscorp.deliverype.domain.entity.TransportationOrder
 import com.dscorp.deliverype.utils.BaseUnitTest
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
@@ -19,7 +19,7 @@ class TransportationServiceShould : BaseUnitTest() {
     private val exception = RuntimeException("network error")
     private val transportationOrders: List<TransportationOrder> = mock()
     private lateinit var service: TransportationOrdersService
-    private val api: TransportationOrderService = mock()
+    private val api: RemoteAPI = mock()
 
     @Before
     fun setup() {

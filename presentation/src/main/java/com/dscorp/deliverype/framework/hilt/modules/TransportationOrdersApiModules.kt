@@ -1,6 +1,6 @@
 package com.dscorp.deliverype.framework.hilt.modules
 
-import com.dscorp.deliverype.data.network.enpoints.TransportationOrderService
+import com.dscorp.deliverype.data.network.enpoints.RemoteAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ class TransportationOrdersApiModules {
 
     @Singleton
     @Provides
-    fun providesTranspotationOrdersApi(retrofit: Retrofit): TransportationOrderService =
-        retrofit.create(TransportationOrderService::class.java)
+    fun providesTranspotationOrdersApi(retrofit: Retrofit): RemoteAPI =
+        retrofit.create(RemoteAPI::class.java)
 
 }

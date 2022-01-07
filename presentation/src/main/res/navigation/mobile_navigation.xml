@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newTransportationOrdersFragment"
-        android:name="com.dscorp.deliverype.presentation.bottomnav.neworders.NewTransportationOrdersFragment"
+        android:name="com.dscorp.deliverype.presentation.features.bottomnav.neworders.NewTransportationOrdersFragment"
         android:label="@string/title_new_orders"
         tools:layout="@layout/new_transportation_fragment_orders_list" >
         <action android:id="@+id/action_transportation_orders_taken_Fragment"
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/transportationOrderTakenFragment"
-        android:name="com.dscorp.deliverype.presentation.bottomnav.takenorders.TransportationOrderTakenFragment"
+        android:name="com.dscorp.deliverype.presentation.features.bottomnav.takenorders.TransportationOrderTakenFragment"
         android:label="@string/taken_transportation_orders"
         tools:layout="@layout/taken_transportation_fragment_orders_list" />
 
     <fragment
         android:id="@+id/historytransportationFragment"
-        android:name="com.dscorp.deliverype.presentation.bottomnav.history.HistoryTransportationFragment"
+        android:name="com.dscorp.deliverype.presentation.features.bottomnav.history.HistoryTransportationFragment"
         android:label="@string/history_transportation_orders"
         tools:layout="@layout/history_transportation_fragment_tem_list" />
 
