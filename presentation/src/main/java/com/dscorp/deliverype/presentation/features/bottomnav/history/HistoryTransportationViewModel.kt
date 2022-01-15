@@ -43,13 +43,12 @@ class HistoryTransportationViewModel @Inject constructor(private val getHistoryT
     private fun fetchTakenTransportOrders(driverId: String) {
         viewModelScope.launch {
             _intentState.value = HistoryTransportationState.Loading
+                getHistoryTransportationOrdersUseCase.invoke(driverId).either({
 
-            try {
-                getHistoryTransportationOrdersUseCase.invoke(driverId).either(::handleError, ::handleSuccesHistoryTranspOrd)
-            } catch (e: Exception) {
-                _intentState.value = HistoryTransportationState.Error(e.message)
-                e.printStackTrace()
-            }
+                },{
+
+                })
+
         }
     }
 

@@ -48,6 +48,7 @@ class NewTransportationOrdersFragment : Fragment() {
     private fun observeViewModel() {
         with(bindig) {
             lifecycleScope.launch {
+
                 viewModelNew.intentState.collect { newOrdersState ->
 
                     when (newOrdersState) {
@@ -64,6 +65,7 @@ class NewTransportationOrdersFragment : Fragment() {
                         }
                     }
                 }
+
             }
         }
     }

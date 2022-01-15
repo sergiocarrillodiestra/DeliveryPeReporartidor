@@ -1,6 +1,7 @@
 package com.dscorp.deliverype.domain.usecases
 
 import com.dscorp.deliverype.domain.entity.Either
+import com.dscorp.deliverype.domain.entity.Failure
 import com.dscorp.deliverype.domain.entity.TransportationOrder
 import com.dscorp.deliverype.domain.repository.TransportationOrdersRepository
 
@@ -12,5 +13,5 @@ import com.dscorp.deliverype.domain.repository.TransportationOrdersRepository
  *
  **/
 class GetNewTransportationOrdersUseCase(private val transportationOrdersRepository: TransportationOrdersRepository) {
-    suspend operator fun invoke():Either<Exception,List<TransportationOrder>> = transportationOrdersRepository.getNewTransportationOrders()
+    suspend operator fun invoke():Either<Failure,List<TransportationOrder>> = transportationOrdersRepository.getNewTransportationOrders()
 }
