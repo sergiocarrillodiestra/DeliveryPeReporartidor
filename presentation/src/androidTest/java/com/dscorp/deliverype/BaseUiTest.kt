@@ -6,7 +6,7 @@ import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.dscorp.deliverype.framework.hilt.modules.idlingResource
-import com.dscorp.deliverype.presentation.MainActivity
+import com.dscorp.deliverype.presentation.ui.features.MainActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher

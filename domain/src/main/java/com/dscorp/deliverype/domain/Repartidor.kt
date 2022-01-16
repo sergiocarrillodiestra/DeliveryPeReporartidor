@@ -5,6 +5,4 @@ data class Repartidor(
     private val pedidosEnCurso: Int,
     private val trabajando: Boolean,
     private val nombre: String,
-) {
-
-}
+)

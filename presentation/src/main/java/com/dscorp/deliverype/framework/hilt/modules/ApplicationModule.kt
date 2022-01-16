@@ -43,7 +43,7 @@ class ApplicationModule {
 
         return Retrofit.Builder()
             .baseUrl(Constants.API_URL)
-            .client(client)
+            .client(httpClient.build())
             .addConverterFactory(GsonConverterFactory.create(gson))
 //            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

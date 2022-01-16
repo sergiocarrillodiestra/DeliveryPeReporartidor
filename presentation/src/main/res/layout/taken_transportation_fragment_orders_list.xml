@@ -4,16 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.features.bottomnav.history.HistoryTransportationFragment">
+    tools:context=".presentation.ui.features.bottomNav.history.HistoryTransportationFragment">
 
-    <ProgressBar
-        android:id="@+id/loader_taked_transportations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:minWidth="40dp"
-        android:minHeight="40dp"
-        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orders_list_taked_transportations"

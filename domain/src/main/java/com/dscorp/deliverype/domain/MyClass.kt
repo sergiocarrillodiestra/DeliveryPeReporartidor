@@ -1,4 +1,3 @@
 package com.dscorp.deliverype.domain
 
-class MyClass {
-}
+class MyClass

@@ -3,10 +3,8 @@ package com.dscorp.deliverype.transportationorders.newtransportationorders
 import com.dscorp.deliverype.data.repository.TransportationOrdersRepositoryImpl
 import com.dscorp.deliverype.data.TransportationOrdersService
 import com.dscorp.deliverype.domain.entity.TransportationOrder
-import com.dscorp.deliverype.presentation.features.bottomnav.neworders.viewmodel.NewTransportationOrdersViewModel
+import com.dscorp.deliverype.presentation.ui.features.bottomNav.neworders.viewmodel.NewTransportationOrdersViewModel
 import com.dscorp.deliverype.utils.BaseUnitTest
-import com.dscorp.deliverype.utils.captureValues
-import com.dscorp.deliverype.utils.getValueForTest
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify

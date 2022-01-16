@@ -20,4 +20,19 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="label_loading">Cargando...</string>
+
+
+    <string name="error_failure_none">Algo inesperado sucedió. Contacta a soporte.</string>
+    <string name="error_failure_network_connection_lost_suddenly">La conexión a internet se perdió repentinamente.</string>
+    <string name="error_failure_no_network_detected">No hay conexión a internet. Inténtalo de nuevo más tarde.</string>
+    <string name="error_failure_ssl">Error de SSL.</string>
+    <string name="error_failure_time_out">Se agotó el tiempo de espera con el servidor.</string>
+    <string name="error_general">Por favor, contacta a soporte.</string>
+    <string name="UnauthorizedOrForbidden">No autorizado</string>
+    <string name="server_error">Error interno del servidor</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">Si</string>
+    <string name="wantToTakeOrder">¿Está seguro que quiere tomar esta orden?</string>
+
 </resources>

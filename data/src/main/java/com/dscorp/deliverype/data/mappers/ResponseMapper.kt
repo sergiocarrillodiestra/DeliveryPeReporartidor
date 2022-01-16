@@ -11,5 +11,5 @@ import com.dscorp.deliverype.domain.entity.TransportationOrder
  *
  **/
 interface ResponseMapper {
-    abstract fun TransportationOrdersResponseToDomain(success: List<TransportationOrderResponse>): List<TransportationOrder>
+    fun TransportationOrdersResponseToDomain(success: List<TransportationOrderResponse>): List<TransportationOrder>
 }
